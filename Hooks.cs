@@ -1,27 +1,29 @@
 ﻿using OpenQA.Selenium.Firefox;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using SpecFlowSample.data.models;
+using SpecFlowSample.pages;
 using TechTalk.SpecFlow;
 
 namespace SpecFlowSample
 {
     [Binding]
-    class Hooks
+    class Hooks : BasePage
     {
-        private static FirefoxDriver driver;
         [BeforeTestRun]
         public static void StartSelenium()
         {
-            driver  = new FirefoxDriver();
+            Driver  = new FirefoxDriver();
+        }
+
+        [BeforeScenario]
+        public static void ClearDb()
+        {
+            User.DeleteAll();            
         }
 
         [AfterTestRun]
         public static void Close()
         {
-            driver.Quit();
+            Driver.Quit();
         }
 
     }

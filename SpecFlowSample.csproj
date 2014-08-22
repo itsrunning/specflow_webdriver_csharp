@@ -57,6 +57,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="data\DB.cs" />
+    <Compile Include="data\models\User.cs" />
     <Compile Include="data\UserData.cs" />
     <Compile Include="features\User.feature.cs">
       <AutoGen>True</AutoGen>
@@ -64,6 +66,7 @@
       <DependentUpon>User.feature</DependentUpon>
     </Compile>
     <Compile Include="Hooks.cs" />
+    <Compile Include="pages\BasePage.cs" />
     <Compile Include="pages\UserPage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,7 +77,9 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>User.feature.cs</LastGenOutput>
     </None>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
